@@ -33,7 +33,7 @@ quoteInputElement.addEventListener('input', ()=>{
 
   let correct = true
   ArrayQuote.forEach((characterSpan,index)=>{
-   console.log("this is curI ".concat(curI))
+   // console.log("this is curI ".concat(curI))
    // console.log("this is index ".concat(index))
      const character = ArrayValue[index]
      if(character==null){
@@ -43,7 +43,7 @@ quoteInputElement.addEventListener('input', ()=>{
 
      }else if (character === characterSpan.innerText){
          if(character===' ' && visited[index]===true){
-            console.log("WHEN CONDITION IS MET ".concat(index))
+            // console.log("WHEN CONDITION IS MET ".concat(index))
 
             visited[index]=false
             noWordsTyped = noWordsTyped + 1
@@ -58,8 +58,8 @@ quoteInputElement.addEventListener('input', ()=>{
         characterSpan.classList.add('incorrect')
         correct = false
      }
-     console.log(visited)
-     console.log("wpm: ".concat(noWordsTyped))
+   //   console.log(visited)
+   //   console.log("wpm: ".concat(noWordsTyped))
   })
 
   if(correct){
