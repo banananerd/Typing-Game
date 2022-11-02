@@ -16,6 +16,7 @@ quoteInputElement.addEventListener('input', ()=>{
    if(typeof visited ==='undefined'){
       visited = new Array(quoteDisplayElement.querySelectorAll('span').length)
       for(let i = 0; i<visited.length;i++){
+         // console.log("arrayquote at i is ".concat(ArrayQuote.item(i).innerText))
          if(ArrayQuote.item(i).innerText===" "){
             visited[i] = true
          }else{
@@ -27,10 +28,13 @@ quoteInputElement.addEventListener('input', ()=>{
 
    
   
+// console.info(visited)
 
 
   let correct = true
   ArrayQuote.forEach((characterSpan,index)=>{
+   // console.log("this is curI ".concat(curI))
+   // console.log("this is index ".concat(index))
      const character = ArrayValue[index]
      if(character==null){
         characterSpan.classList.remove('correct')
@@ -39,9 +43,11 @@ quoteInputElement.addEventListener('input', ()=>{
 
      }else if (character === characterSpan.innerText){
          if(character===' ' && visited[index]===true){
+            // console.log("WHEN CONDITION IS MET ".concat(index))
 
             visited[index]=false
             noWordsTyped = noWordsTyped + 1
+            // wordsPerMinute.innerText = Math.floor((noWordsTyped/timer.innerText)*60)
 
          }
         characterSpan.classList.add('correct')
@@ -52,7 +58,8 @@ quoteInputElement.addEventListener('input', ()=>{
         characterSpan.classList.add('incorrect')
         correct = false
      }
-
+   //   console.log(visited)
+   //   console.log("wpm: ".concat(noWordsTyped))
   })
 
   if(correct){
